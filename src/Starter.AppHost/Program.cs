@@ -2,11 +2,15 @@ using Projects;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-const string prefix = "my-app";
+const string prefix = "user-management";
+
+var password = builder
+    .AddParameter($"{prefix}-mssql-password", "$tr0ngPa$$w0rd", secret: true);
 
 var db = builder
-    .AddSqlServer($"{prefix}-db", port: 44000)
-    .WithDataVolume();
+    .AddSqlServer($"{prefix}-mssql", password, 44000)
+    .WithDataVolume()
+    .AddDatabase($"{prefix}-db");
 
 builder
     .AddProject<Command_Api>($"{prefix}-command-api")

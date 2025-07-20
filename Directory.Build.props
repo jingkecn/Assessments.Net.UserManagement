@@ -1,8 +1,8 @@
 <Project>
   <PropertyGroup>
     <!-- Custom Properties -->
-    <Company>MyCompany</Company>
-    <Product>MyProduct</Product>
+    <Company>Assessments</Company>
+    <Product>UserManagement</Product>
     <!-- Redefine MSBuild Properties -->
     <AssemblyName>$(Company).$(Product).$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>$(Company).$(Product).$(MSBuildProjectName)</RootNamespace>
